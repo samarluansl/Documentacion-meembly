@@ -1,11 +1,21 @@
 # Onboarding del comercial — primera semana en Meembly
 
-Guía para cualquier persona que empieza mañana en el equipo comercial. Léela entera el día 1 (te lleva 30-40 min). Luego usa [role-member.md](./role-member.md) como referencia rápida durante el resto del trabajo.
+Guía para cualquier persona que empieza mañana en el equipo comercial. Léela entera el día 1 (te lleva 30-40 min). Luego usa la guía de tu rol como referencia rápida:
+
+- **Rol Postventa** (comercial externo SPA/MPS, cierre ya hecho, tú haces D+0/D+14) → [role-postventa.md](./role-postventa.md).
+- **Rol Venta** (closer interno Meembly, embudo completo) → [role-venta.md](./role-venta.md).
 
 Convenciones:
 - **Meembly** = la app que vende nuestro producto a los clubes. La usa el dueño/manager del club.
 - **Meembly Admin** = tu panel interno. Aquí vives tú y el resto del equipo.
 - Cualquier cosa marcada `[borrador]` viene de defaults que he puesto yo — valídalo con Samuel antes de decírselo a un cliente.
+
+## ¿Qué rol tienes?
+
+- Si vienes de SPA/MPS y tu trabajo es retomar D+0/D+14 con clientes ya cerrados para ofrecerles Meembly → rol **Postventa** (en DB: `MEMBER`). Solo email y llamada, sin WA ni IG.
+- Si eres closer interno Meembly y trabajas leads fríos → rol **Venta** (`VENTA`). Todos los canales + creación de club al cerrar WON.
+
+Ambos roles comparten: cap de 4 leads activos, scope individual (ves solo lo tuyo), Gmail personal, mismas métricas.
 
 ### Mapa de tu primera semana
 
@@ -15,7 +25,7 @@ timeline
     Día 1 : Invite + magic link
           : Conecta Gmail (OAuth)
           : Tour del panel
-          : Lee role-member.md
+          : Lee role-postventa.md
     Día 2 : Primer lead asignado
           : Investigación 5 min
           : Primer contacto (email/WA/IG)
@@ -39,24 +49,28 @@ flowchart TB
     Owner["Owner<br/>Samuel<br/>(acceso total)"]
     Admin["Admin<br/>Marta<br/>(casi todo, no toca al Owner)"]
     Manager["Manager<br/>Pablo<br/>(supervisa al equipo, no asigna)"]
-    Member["Member<br/>Rober y otros<br/>(trabaja leads, cap 4)"]
+    Venta["Venta<br/>closer interno<br/>(embudo completo, cap 4)"]
+    Postventa["Postventa<br/>Rober y SPA/MPS<br/>(D+0/D+14, cap 4)"]
     Viewer["Viewer<br/>stakeholders<br/>(todo read-only)"]
 
     Owner --> Admin
     Admin --> Manager
-    Manager --> Member
+    Manager --> Venta
+    Manager --> Postventa
     Owner -.observa.-> Viewer
 
     classDef owner fill:#fbbf24,stroke:#b45309,color:#111
     classDef admin fill:#60a5fa,stroke:#1e40af,color:#fff
     classDef manager fill:#a78bfa,stroke:#5b21b6,color:#fff
-    classDef member fill:#34d399,stroke:#065f46,color:#111
+    classDef venta fill:#f472b6,stroke:#9d174d,color:#fff
+    classDef postventa fill:#34d399,stroke:#065f46,color:#111
     classDef viewer fill:#e5e7eb,stroke:#6b7280,color:#111
 
     class Owner owner
     class Admin admin
     class Manager manager
-    class Member member
+    class Venta venta
+    class Postventa postventa
     class Viewer viewer
 ```
 
@@ -122,7 +136,7 @@ Esa es la línea. Todo lo demás se desarrolla en base a eso.
 
    ![Invite email](./screenshots/invite-email.png) *(pendiente de capturar)*
 
-2. **Revisa tu rol**: arriba a la derecha ves tu nombre y rol (Member). Si dice otra cosa, avisa a Marta.
+2. **Revisa tu rol**: arriba a la derecha ves tu nombre y rol — `Postventa` (comercial externo SPA/MPS) o `Venta` (closer interno Meembly). Si dice otra cosa, avisa a Marta.
 
 3. **Conecta tu Gmail personal**: sidebar → **Ajustes → Email**. Click en "Conectar Gmail" → OAuth con Google → autorizas. A partir de aquí, cada email que mandes desde un lead sale desde tu dirección (no desde el genérico).
 
@@ -135,15 +149,15 @@ Esa es la línea. Todo lo demás se desarrolla en base a eso.
 
 ### Tour guiado del panel
 
-Con la guía [role-member.md](./role-member.md) abierta en paralelo, recorre cada entrada de tu sidebar:
+Con la guía [role-postventa.md](./role-postventa.md) abierta en paralelo, recorre cada entrada de tu sidebar:
 
 | Sidebar entry | Para qué | Léelo en | 
 |---|---|---|
-| Home | Tus KPIs personales, próximos pasos. | [role-member §Home](./role-member.md#qué-ves-al-entrar) |
-| Mis leads | Tus 4 leads activos. | [role-member §Flujo 2](./role-member.md#flujo-2--trabajar-el-lead-hasta-cerrarlo) |
-| En espera | Leads con respuesta pendiente del club. | [role-member §WAITING](./role-member.md#en-espera-waiting) |
-| Pendientes | Leads con inbound sin atender. | [role-member §Pendientes](./role-member.md#pendientes-bandeja-de-actividad-entrante) |
-| Pipeline | Tu Kanban de deals. | [role-member §Pipeline](./role-member.md#pipeline) |
+| Home | Tus KPIs personales, próximos pasos. | [role-postventa §Home](./role-postventa.md#qué-ves-al-entrar) |
+| Mis leads | Tus 4 leads activos. | [role-postventa §Flujo 2](./role-postventa.md#flujo-2--trabajar-el-lead-hasta-cerrarlo) |
+| En espera | Leads con respuesta pendiente del club. | [role-postventa §WAITING](./role-postventa.md#en-espera-waiting) |
+| Pendientes | Leads con inbound sin atender. | [role-postventa §Pendientes](./role-postventa.md#pendientes-bandeja-de-actividad-entrante) |
+| Pipeline | Tu Kanban de deals. | [role-postventa §Pipeline](./role-postventa.md#pipeline) |
 | Actividad | Tu feed de lo que has enviado y recibido. | — |
 | Métricas | KPIs globales del equipo (no filtradas por tu scope). | — |
 | Soporte | Read-only. Para enterarte de qué problemas tienen los clubes. | — |
@@ -153,7 +167,7 @@ Con la guía [role-member.md](./role-member.md) abierta en paralelo, recorre cad
 
 ### Entiende el cap de 4 leads
 
-Lee esta sección dos veces: [role-member §Cap de 4 leads](./role-member.md#cap-de-4-leads).
+Lee esta sección dos veces: [role-postventa §Cap de 4 leads](./role-postventa.md#cap-de-4-leads).
 
 Es el hecho más importante de tu día a día:
 - Nunca tendrás más de 4 leads activos.
@@ -165,7 +179,7 @@ Regla mental: **si un lead no avanza en 2 semanas, decide. No acumules.**
 
 ### Lectura obligatoria
 
-- [role-member.md](./role-member.md) — tu guía de referencia.
+- [role-postventa.md](./role-postventa.md) — tu guía de referencia.
 - Este documento hasta el final.
 - [admin-index.md](./admin-index.md) — solo la matriz resumida, para que entiendas quién puede hacer qué.
 
@@ -198,10 +212,10 @@ Marta te asigna 1 lead del pool. Lo notas porque:
    - Web: ¿tienen ya reservas online? ¿Pasarela de pago? ¿Newsletter?
    - Google Maps: reseñas, horario, pistas.
 4. **Primer contacto**. Por orden de preferencia:
-   - **Email** (si tienes email directo del dueño). Composer → tab Email → plantilla `[borrador — crear plantilla "primer contacto" con Samuel]` → personaliza 2 líneas → enviar.
-   - **WhatsApp** (si tienes número). Composer → tab WhatsApp.
-   - **IG DM** (si lo anterior falla).
-   - **Llamada** (último recurso; registra la conversación en la pestaña Llamada).
+   - **Email** (si tienes email directo del dueño). Composer → tab Email → plantilla (si es postventa: "Meembly upsell" añade Pablo en Cc automáticamente) → personaliza 2 líneas → enviar.
+   - **WhatsApp** (solo rol Venta; tiene número). Composer → tab WhatsApp.
+   - **IG DM** (solo rol Venta; el resto de canales falla).
+   - **Llamada** (todos; registra la conversación en la pestaña Llamada).
 5. **Mueve el stage**: del lead o del deal, pasa de `NEW` a `CONTACTED`.
 
 ![Lead detail — primer contacto](./screenshots/lead-first-contact.png) *(pendiente)*
@@ -216,8 +230,22 @@ Marta te irá llenando a 3/4 o 4/4. Mismo flujo. En paralelo vas atendiendo resp
 - Si en la respuesta el club muestra interés real (pregunta por precio, pide demo, dice "me interesa"), mueve el deal a `QUALIFIED`.
 
 **Cuando no responde en 3-5 días**:
-- Un follow-up por otro canal (si le escribiste por email, ahora WhatsApp).
+- Un follow-up por otro canal (rol Venta: de email a WA; rol Postventa: de email a llamada Ringover — sin WA ni IG).
 - Si sigues sin respuesta en 1 semana: `WAITING` con `awaitingUntil` a 7-14 días vista. Queda en espera; sigue ocupando slot.
+
+### Si eres Postventa: tu ritmo estándar D+0 / D+14
+
+Los leads postventa llegan a tu panel auto-taggeados con `source=postventa-<instancia>` (ej. `postventa-spa`, `postventa-mps`). El cron `admin-sync-odoo-leads` los trae cada 15 min desde Odoo con el tag `Postventa`.
+
+Tu ciclo sobre cada lead postventa es:
+
+1. **D+0** (el día que te lo asignan). Primera llamada desde Ringover. Nota en el timeline (pestaña Llamada con transcripción o resumen). Stage → `CONTACTED`.
+2. **Días 1-13**. Follow-up por email si la llamada se quedó en aire.
+3. **D+14**. Mandas el template **"Meembly upsell"** desde el composer (pestaña Email → desplegable "Plantilla" → "Meembly upsell (postventa)"). Subject, body (ES o EN) y Pablo en Cc se autocompletan. Se taggea en metadata y el cron D+14 no te duplica el recordatorio.
+
+**Si dejas pasar D+14** el cron diario `admin-upsell-d14-reminder` te genera una nota pendiente en `/admin/dashboard/leads/pending` — aparece como inbound a gestionar, con el número de días desde la última llamada. Mandas el email (la nota se borra sola) o la marcas como gestionada si hay motivo válido para no mandarlo.
+
+**Límites de canal para Postventa**: solo email + Ringover. WA e IG están gateados fuera de tu rol — si hay que mandar WA/IG, se lo pides a Pablo o al comercial Venta.
 
 ### Día 5 — primera demo
 
@@ -461,8 +489,9 @@ Todos visibles en sidebar → **Métricas** y **Objetivos**.
 
 Cuando termines esta guía:
 
-- [role-member.md](./role-member.md) — referencia del día a día.
+- [role-postventa.md](./role-postventa.md) — referencia del día a día.
 - [admin-index.md](./admin-index.md) — matriz de permisos y navegación por tarea.
+- (Opcional, si eres curioso) [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md) — por qué el panel está diseñado así.
 
 ---
 

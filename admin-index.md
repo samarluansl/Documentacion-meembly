@@ -11,61 +11,72 @@ flowchart TB
     Owner["OWNER<br/>Samuel<br/>acceso total"]
     Admin["ADMIN<br/>Marta<br/>casi todo excepto tocar al Owner"]
     Manager["MANAGER<br/>Pablo<br/>supervisa equipo comercial"]
-    Member["MEMBER<br/>Rober y futuros<br/>trabaja leads · cap 4"]
+    Venta["VENTA<br/>closer interno Meembly<br/>embudo completo · cap 4"]
+    Member["MEMBER = Postventa<br/>Roberto (SPA/MPS)<br/>D+0/D+14 · cap 4"]
     Viewer["VIEWER<br/>Luis y stakeholders<br/>todo read-only"]
 
     Owner --> Admin
     Admin --> Manager
+    Manager --> Venta
     Manager --> Member
     Owner -.comparten métricas.-> Viewer
 
     classDef owner fill:#fbbf24,stroke:#b45309,color:#111
     classDef admin fill:#60a5fa,stroke:#1e40af,color:#fff
     classDef manager fill:#a78bfa,stroke:#5b21b6,color:#fff
+    classDef venta fill:#f472b6,stroke:#9d174d,color:#fff
     classDef member fill:#34d399,stroke:#065f46,color:#111
     classDef viewer fill:#e5e7eb,stroke:#6b7280,color:#111
 
     class Owner owner
     class Admin admin
     class Manager manager
+    class Venta venta
     class Member member
     class Viewer viewer
 ```
 
 | Persona | Rol | Guía |
 |---|---|---|
-| Samuel Dávila | Owner | interno (pedir a Samuel) |
-| Marta | Admin | interno (pedir a Samuel) |
+| Samuel Dávila | Owner | [role-owner.md](./role-owner.md) |
+| Marta | Admin | [role-admin.md](./role-admin.md) |
 | Pablo Salcedo | Manager | [role-manager.md](./role-manager.md) |
-| Roberto y futuros comerciales | Member | [role-member.md](./role-member.md) |
+| Closers internos Meembly | Venta | [role-venta.md](./role-venta.md) |
+| Roberto y comerciales externos SPA/MPS | Postventa (`MEMBER` en DB) | [role-postventa.md](./role-postventa.md) |
 | Luis y otros stakeholders externos | Viewer | [role-viewer.md](./role-viewer.md) |
 
-> Nota: las guías detalladas de Owner (Samuel) y Admin (Marta) son internas y no se publican aquí. Los comerciales, manager y stakeholders tienen todo lo que necesitan en este repo.
+**Postventa vs Venta** — mismo nivel en el organigrama, diferentes canales:
+
+- **Postventa** (`MEMBER`, renderizado como "Postventa"): comercial externo contratado vía SPA/MPS. Hace D+0 + D+14 sobre leads auto-sincronizados desde Odoo con tag `Postventa`. Solo puede usar **email + Ringover** — nunca WhatsApp ni IG (son recursos compartidos de Meembly).
+- **Venta** (`VENTA`): closer interno de Meembly. Trabaja el embudo completo (frío → WON → club). Todos los canales abiertos (email, WA, IG, llamadas) + crea clubes directo al cerrar WON.
 
 ## Qué puede hacer cada rol (resumen)
 
-| Área | Owner | Admin | Manager | Member | Viewer |
-|---|:-:|:-:|:-:|:-:|:-:|
-| Ver leads | Todos | Todos | Del equipo | Propios | Todos (read) |
-| Editar leads | ✓ | ✓ | — | Propios | — |
-| Asignar leads / ver pool | ✓ | ✓ | — | — | — |
-| Pipeline (ver/mover) | ✓ / ✓ | ✓ / ✓ | Ver equipo | Ver propios / mover propios | Ver / — |
-| Enviar email, WA, IG | ✓ | ✓ | ✓ | ✓ | — |
-| Prospectos (pre-funnel) | ✓ | ✓ | — | — | — |
-| Clubes (panel Activos/Onboarding/Renovaciones) | ✓ | ✓ | ✓ | — | — |
-| Crear club | ✓ | ✓ | — | — | — |
-| Customer Success (salud clientes) | ✓ | ✓ | ✓ | — | — |
-| Marketing (proponer contenido a clubes, publicar Meembly) | ✓ | ✓ | — | — | — |
-| Soporte — ver conversaciones | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Soporte — aprobar drafts, editar KB | ✓ | ✓ | — | — | — |
-| Instancias Odoo (SPA/MPS/PM/YVR) — ver | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Instancias Odoo — gestionar | ✓ | ✓ | — | — | — |
-| Equipo (invitar, cambiar rol, overrides) | ✓ | ✓ | — | — | — |
-| Objetivos (ver/editar) | ✓ / ✓ | ✓ / ✓ | ✓ / — | ✓ / — | ✓ / — |
-| Métricas | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Auditoría (log del equipo Meembly) | ✓ | ✓ | — | — | — |
+| Área | Owner | Admin | Manager | Venta | Postventa | Viewer |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Ver leads | Todos | Todos | Equipo comercial | Propios | Propios | Todos (read) |
+| Editar leads | ✓ | ✓ | — | Propios | Propios | — |
+| Asignar leads / ver pool | ✓ | ✓ | — | — | — | — |
+| Pipeline (ver/mover) | ✓ / ✓ | ✓ / ✓ | Ver equipo | Ver propios / mover propios | Ver propios / mover propios | Ver / — |
+| Enviar email / llamada | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+| Enviar WhatsApp | ✓ | ✓ | ✓ | ✓ | — | — |
+| Enviar Instagram DM | ✓ | ✓ | ✓ | ✓ | — | — |
+| Prospectos (pre-funnel) | ✓ | ✓ | — | — | — | — |
+| Clubes (panel Activos/Onboarding/Renovaciones) | ✓ | ✓ | ✓ | ✓ | — | — |
+| Crear club | ✓ | ✓ | — | ✓ | — | — |
+| Customer Success (salud clientes) | ✓ | ✓ | ✓ | — | — | — |
+| Marketing (proponer contenido a clubes, publicar Meembly) | ✓ | ✓ | — | — | — | — |
+| Soporte — ver conversaciones | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Soporte — aprobar drafts, editar KB | ✓ | ✓ | — | — | — | — |
+| Instancias Odoo (SPA/MPS/PM/YVR) — ver | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Instancias Odoo — gestionar | ✓ | ✓ | — | — | — | — |
+| Equipo (invitar, cambiar rol, overrides) | ✓ | ✓ | — | — | — | — |
+| Objetivos (ver/editar) | ✓ / ✓ | ✓ / ✓ | ✓ / — | ✓ / — | ✓ / — | ✓ / — |
+| Métricas | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Auditoría (log del equipo Meembly) | ✓ | ✓ | — | — | — | — |
+| Ajustes (Gmail personal) | ✓ | ✓ | ✓ | ✓ | ✓ | — |
 
-El Owner puede dar permisos extra a personas concretas (add) o quitar permisos del bundle (deny) desde **Equipo → editar miembro**. Si necesitas un ajuste de permisos puntual, se lo pides a Samuel.
+El Owner puede dar permisos extra a personas concretas (add) o quitar permisos del bundle (deny) desde **Equipo → editar miembro**. Lo explica [role-owner.md](./role-owner.md).
 
 ### Permisos efectivos — cómo se calculan
 
@@ -88,49 +99,52 @@ Regla: **deny siempre gana**. Si un permiso está en el bundle del rol y tambié
 
 ## ¿Cómo hago X? — Índice por tarea
 
-### Trabajar un lead (Member)
-- Recibir uno del pool → [Member §Flujo 1](./role-member.md#flujo-1--recibir-un-lead-del-pool)
-- Mover stage (NEW → CONTACTED → QUALIFIED → DEMO → PROPOSAL) → [Member §Flujo 2](./role-member.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
-- Cerrar lead (WON / LOST) → [Member §Flujo 2](./role-member.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
-- Devolver lead al pool → [Member §Devolver al pool](./role-member.md#devolver-un-lead-al-pool)
-- Ver mis slots (n/4) → [Member §Cap de 4 leads](./role-member.md#cap-de-4-leads)
-- Enviar email / WhatsApp / IG / llamada → [Member §Composer](./role-member.md#composer-envía-comunicaciones-sin-salir-del-lead)
+### Trabajar un lead
+- Recibir uno del pool → [Postventa §Flujo 1](./role-postventa.md#flujo-1--recibir-un-lead-del-pool) · [Venta §Flujo](./role-venta.md#flujo-completo-lead-frío--club-activo) · [Admin §Repartir pool](./role-admin.md#repartir-el-pool)
+- Mover stage (NEW → CONTACTED → QUALIFIED → DEMO → PROPOSAL) → [Postventa §Flujo 2](./role-postventa.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
+- Cerrar lead (WON / LOST) → [Postventa §Flujo 2](./role-postventa.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
+- Devolver lead al pool → [Postventa §Devolver al pool](./role-postventa.md#devolver-un-lead-al-pool)
+- Ver mis slots (n/4) → [Postventa §Cap de 4 leads](./role-postventa.md#cap-de-4-leads)
+- Enviar email / llamada (Postventa) → [Postventa §Composer](./role-postventa.md#composer-envía-comunicaciones-sin-salir-del-lead)
+- Enviar email / WA / IG / llamada (Venta) → [Venta §Canales](./role-venta.md#canales-que-tienes)
+- Mandar email "Meembly upsell" D+14 → [Postventa §Flujo D+0/D+14](./role-postventa.md#flujo-d0--d14-tu-ritmo-estándar)
 
-### Comercial desde arriba (Manager)
+### Comercial desde arriba (Manager/Admin/Owner)
 - Ver actividad del equipo → [Manager §Pipeline y actividad](./role-manager.md#pipeline-y-actividad-del-equipo)
 - Métricas / ranking → [Manager §Métricas](./role-manager.md#métricas)
-- Editar objetivos comerciales → lo hacen Marta o Samuel; tú los lees.
+- Editar objetivos comerciales → [Admin §Objetivos](./role-admin.md#objetivos) · [role-owner.md](./role-owner.md)
 
-### Equipo (lo gestionan Samuel/Marta)
-- Invitar comercial nuevo → pedir a Marta.
-- Ajustar permisos a una persona (add/deny) → pedir a Samuel.
-- Cambiar rol de un miembro → pedir a Samuel.
-- Desactivar miembro → pedir a Marta.
+### Equipo
+- Invitar comercial nuevo → [Admin §Invitar](./role-admin.md#invitar-a-alguien-al-equipo)
+- Ajustar permisos a una persona (add/deny) → [Owner §Overrides](./role-owner.md#overrides-add--deny)
+- Cambiar rol de un miembro → [Owner §Cambiar rol](./role-owner.md#cambiar-el-rol-de-alguien)
+- Desactivar miembro → [Admin §Desactivar](./role-admin.md#desactivar-un-miembro)
 
 ### Clubes
-- Ver clubes activos / salud / renovaciones → [Manager §Panel clubes](./role-manager.md#panel-clubes)
-- Crear un club nuevo desde admin → lo hacen Marta/Samuel.
-- Convertir un lead ganado en club → lo hace Marta (tú cierras el lead con WON, ella convierte).
+- Ver clubes activos / salud / renovaciones → [Manager §Panel clubes](./role-manager.md#panel-clubes) · [Admin §Panel clubes](./role-admin.md#panel-clubes-activos--onboarding--renovaciones)
+- Crear un club nuevo desde admin → [Admin §Crear club](./role-admin.md#crear-un-club-nuevo)
+- Convertir un lead ganado en club → [Admin §Convertir lead](./role-admin.md#convertir-un-lead-ganado-en-club)
 
 ### Prospectos (pre-funnel)
-- Registrar / convertir prospectos → lo hacen Marta/Samuel; tú no los ves hasta que se convierten en lead.
+- Registrar prospecto B2B → [Admin §Prospectos](./role-admin.md#prospectos-pre-funnel)
+- Convertir prospecto en lead → [Admin §Prospectos](./role-admin.md#prospectos-pre-funnel)
 
 ### Marketing
-- Aprobar y publicar post Meembly (IG propio) → lo hacen Marta/Samuel.
-- Proponer contenido a un club cliente → lo hacen Marta/Samuel; el club lo ve en su panel.
+- Aprobar y publicar post Meembly (IG propio) → [Admin §Marketing Meembly](./role-admin.md#marketing-meembly-publicación-manual-desde-admin)
+- Proponer contenido a un club cliente → [Admin §Marketing clubes](./role-admin.md#marketing-proponer-contenido-a-un-club)
 
 ### Soporte
-- Aprobar / editar / rechazar un draft de IA → lo hacen Marta/Samuel.
-- Añadir corrección a la KB → lo hacen Marta/Samuel.
-- Ver conversaciones (read-only) → [Viewer §Soporte](./role-viewer.md#soporte-read-only) (todos los roles tienen acceso lectura).
+- Aprobar / editar / rechazar un draft de IA → [Admin §Soporte](./role-admin.md#soporte-aprobar-drafts-de-ia)
+- Añadir corrección a la KB → [Admin §Soporte](./role-admin.md#soporte-aprobar-drafts-de-ia)
+- Ver conversaciones (read-only) → [Viewer §Soporte](./role-viewer.md#soporte-read-only)
 
 ### Infraestructura
-- Conectar tu Gmail personal → [Member §Gmail](./role-member.md#conectar-tu-gmail-personal).
-- Revisar instancias Odoo con error → Marta/Samuel.
-- Ver auditoría del equipo → Marta/Samuel (no accesible a Manager/Member/Viewer).
+- Conectar tu Gmail personal (para enviar emails desde tu identidad) → [Admin §Gmail](./role-admin.md#conectar-tu-gmail-personal) · [Postventa §Gmail](./role-postventa.md#conectar-tu-gmail-personal)
+- Revisar instancias Odoo con error → [Admin §Instancias](./role-admin.md#instancias-odoo) · [Owner](./role-owner.md)
+- Ver auditoría del equipo → [Admin §Auditoría](./role-admin.md#auditoría) · [Owner](./role-owner.md)
 
 ### Notificaciones pendientes
-- Ver leads con actividad entrante sin atender → [Member §Pendientes](./role-member.md#pendientes-bandeja-de-actividad-entrante) · [Manager §Pendientes](./role-manager.md#pendientes-del-equipo)
+- Ver leads con actividad entrante sin atender → [Postventa §Pendientes](./role-postventa.md#pendientes-bandeja-de-actividad-entrante) · [Manager §Pendientes](./role-manager.md#pendientes-del-equipo)
 - Marcar una actividad como gestionada → idem
 
 ## Convenciones

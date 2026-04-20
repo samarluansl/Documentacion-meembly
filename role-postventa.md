@@ -1,8 +1,31 @@
-# Guía del Member — el comercial (Roberto y los que vengan)
+# Guía del rol Postventa — comercial externo SPA/MPS (Roberto y futuros)
 
-Eres el que trabaja los leads. Tu panel está orientado a ejecutar: abrir un lead, hablar con el club, moverlo por las etapas, cerrarlo. No gestionas a nadie y ves solo lo tuyo.
+Eres el comercial externo que hace **postventa D+0 / D+14** para clientes SPA, MPS y futuras instancias Odoo. Tu trabajo es retomar con el cliente ya cerrado por SPA/MPS y ofrecerle Meembly como producto adicional. No cierras ventas frías — los leads llegan ya calificados desde Odoo con tag `Postventa`.
+
+> **Nota técnica:** en DB tu rol se llama `MEMBER` por compatibilidad histórica. En toda la UI y en estas guías aparece como **Postventa**. El comercial interno Meembly que cierra venta fría tiene otro rol distinto — `VENTA` — con más canales; está en [role-venta.md](./role-venta.md).
 
 Si buscas una tarea concreta, empieza por el [índice](./admin-index.md).
+
+## Canales que puedes usar
+
+Regla clave: **solo email y Ringover (llamadas)**. Sin WhatsApp, sin Instagram DM.
+
+- **Email**: desde tu Gmail personal conectado en Ajustes → Email. Si el lead tiene `source=postventa-*`, Pablo (pablo@meembly.com) entra automáticamente en Cc para que tenga visibilidad del seguimiento — no lo tienes que añadir a mano.
+- **Llamadas**: desde tu móvil o Ringover. Se registran en el composer (pestaña Llamada) y las entrantes aparecen solas vía webhook.
+- **WhatsApp**: ❌ no. El bot de WA es compartido de Meembly — si mandas desde ahí, el club recibe "Meembly" sin saber que eres Roberto de SPA. Lo hacen solo Owner/Admin/Manager/Venta.
+- **Instagram DM**: ❌ no. La cuenta @meembly es compartida — mismo motivo.
+
+Si un lead postventa pide algo por WhatsApp/IG, lo escalas a Marta o Pablo y que lo manden ellos.
+
+## Flujo D+0 / D+14 (tu ritmo estándar)
+
+Los leads llegan auto-taggeados con `source=postventa-<instancia>` (ej. `postventa-spa`, `postventa-mps`) al sincronizar Odoo. Tu ritmo es:
+
+1. **D+0** — Marta te asigna el lead. Llamada inicial + nota en timeline (pestaña Llamada). Stage del deal → `CONTACTED`.
+2. **Días 1-13** — follow-up por email si se ha quedado en aire. Si el club pide tiempo, `WAITING` con `awaitingUntil` a N días.
+3. **D+14** — envías el template **"Meembly upsell"** desde el composer de email. Está ya en el desplegable "Plantilla" cuando abres el sheet en un lead `postventa-*`. Subject y body prerrellenados en ES/EN; Pablo entra en Cc automáticamente.
+
+Si dejas pasar los 14 días sin mandar el email de upsell, el cron diario `admin-upsell-d14-reminder` te crea una nota pendiente en tu bandeja `/admin/dashboard/leads/pending` con el lead — aparece como actividad entrante que tienes que gestionar. Mandas el email o marcas la nota como gestionada con motivo.
 
 ## Qué ves al entrar
 
@@ -96,11 +119,9 @@ No es un drama — es mejor devolver que acumular leads parados.
 
 ### Composer: envía comunicaciones sin salir del lead
 
-En la página de detalle, abajo, hay pestañas: **Email · WhatsApp · IG DM · Llamada · Nota**.
+En la página de detalle, abajo, tú solo ves **Email · Llamada · Nota** (WhatsApp e IG están gateados fuera de tu rol).
 
-- **Email**: requiere que hayas conectado tu Gmail (Ajustes → Email). El email sale desde tu dirección.
-- **WhatsApp**: requiere que haya conexión WA del admin (`AdminWhatsApp`). Envío en background vía daemon.
-- **IG DM**: idem, vía daemon `instagrapi`.
+- **Email**: requiere que hayas conectado tu Gmail (Ajustes → Email). El email sale desde tu dirección. Si el lead es postventa, Pablo entra en Cc automáticamente. Desde el desplegable "Plantilla" puedes meter el template **Meembly upsell** (ES/EN) — el subject/body se autocompletan y queda taggeado en el timeline para que el cron D+14 no te mande recordatorio.
 - **Llamada**: aquí solo registras que has hablado — llamar se hace desde tu móvil o desde Ringover. Las llamadas entrantes de Ringover aparecen aquí solas vía webhook.
 - **Nota**: texto libre, no se envía a nadie. Útil para dejarte recordatorios.
 
@@ -140,12 +161,14 @@ Sidebar → **Soporte**. Ves conversaciones que la gente manda a soporte@meembly
 
 ## Qué NO puedes hacer
 
+- **Mandar WhatsApp o IG DM** (gates `crm.activities.send.whatsapp` / `crm.activities.send.ig`): son canales compartidos de Meembly. Si hay que mandar, pídelo a Marta/Pablo o al comercial VENTA.
 - **Ver el pool** (gate `pool.view`): pídele a Marta que te reparta leads.
 - **Asignar leads** a ti mismo o a otros: Marta/Samuel.
 - **Ver / editar otros leads** que no tengas asignados: tu scope no los incluye.
 - **Superar 4 leads activos**: es un tope duro.
 - **Ver prospectos** (gate `prospects.view`): son pre-funnel, no los tocas hasta que se convierten en lead.
 - **Ver clubes** (gate `clubs.view`): el panel Clubes es post-venta, no es parte de tu día a día.
+- **Crear un club**: solo VENTA/Admin/Owner.
 - **Marketing / Soporte manage / Equipo / Auditoría**: roles superiores.
 - **Ver leads de otro comercial**: tu scope te los oculta.
 
@@ -159,6 +182,6 @@ Sidebar → **Soporte**. Ves conversaciones que la gente manda a soporte@meembly
 
 ## Lecturas complementarias
 
+- Plan de roles v2: [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md).
 - [role-manager.md](./role-manager.md) — lo que Pablo ve de tu trabajo.
-- [onboarding-comercial.md](./onboarding-comercial.md) — tu primera semana paso a paso (si aún no la has leído).
-- Qué desbloquea Marta (Admin) o Samuel (Owner): pregúntales directamente — tienen guías internas de sus flujos.
+- [role-admin.md](./role-admin.md) — qué puede desbloquearte Marta.

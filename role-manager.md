@@ -106,6 +106,7 @@ Cuando abres un lead que está asignado a Roberto (no a ti), puede que la págin
 
 ## Lecturas complementarias
 
-- [role-member.md](./role-member.md) — el día a día del comercial, para entender qué supervisas.
-- [onboarding-comercial.md](./onboarding-comercial.md) — la semana 1 de cualquier comercial nuevo.
-- Qué hace Marta (Admin) o Samuel (Owner) que tú no: pregúntales — tienen guías internas de sus flujos.
+- [role-admin.md](./role-admin.md) — qué hace Marta que tú no.
+- [role-postventa.md](./role-postventa.md) — el día a día del rol Postventa (Roberto y SPA/MPS) — email + llamada, D+0/D+14.
+- [role-venta.md](./role-venta.md) — el día a día del rol Venta (closers internos Meembly) — embudo completo con todos los canales.
+- Plan de roles v2: [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md).
