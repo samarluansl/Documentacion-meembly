@@ -159,6 +159,6 @@ Sidebar → **Soporte**. Ves conversaciones que la gente manda a soporte@meembly
 
 ## Lecturas complementarias
 
-- Plan de roles v2: [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md).
 - [role-manager.md](./role-manager.md) — lo que Pablo ve de tu trabajo.
-- [role-admin.md](./role-admin.md) — qué puede desbloquearte Marta.
+- [onboarding-comercial.md](./onboarding-comercial.md) — tu primera semana paso a paso (si aún no la has leído).
+- Qué desbloquea Marta (Admin) o Samuel (Owner): pregúntales directamente — tienen guías internas de sus flujos.

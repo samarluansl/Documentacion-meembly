@@ -34,11 +34,13 @@ flowchart TB
 
 | Persona | Rol | Guía |
 |---|---|---|
-| Samuel Dávila | Owner | [role-owner.md](./role-owner.md) |
-| Marta | Admin | [role-admin.md](./role-admin.md) |
+| Samuel Dávila | Owner | interno (pedir a Samuel) |
+| Marta | Admin | interno (pedir a Samuel) |
 | Pablo Salcedo | Manager | [role-manager.md](./role-manager.md) |
 | Roberto y futuros comerciales | Member | [role-member.md](./role-member.md) |
 | Luis Escobar y otros stakeholders externos | Viewer | [role-viewer.md](./role-viewer.md) |
+
+> Nota: las guías detalladas de Owner (Samuel) y Admin (Marta) son internas y no se publican aquí. Los comerciales, manager y stakeholders tienen todo lo que necesitan en este repo.
 
 ## Qué puede hacer cada rol (resumen)
 
@@ -63,7 +65,7 @@ flowchart TB
 | Métricas | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Auditoría (log del equipo Meembly) | ✓ | ✓ | — | — | — |
 
-El Owner puede dar permisos extra a personas concretas (add) o quitar permisos del bundle (deny) desde **Equipo → editar miembro**. Lo explica [role-owner.md](./role-owner.md).
+El Owner puede dar permisos extra a personas concretas (add) o quitar permisos del bundle (deny) desde **Equipo → editar miembro**. Si necesitas un ajuste de permisos puntual, se lo pides a Samuel.
 
 ### Permisos efectivos — cómo se calculan
 
@@ -86,47 +88,46 @@ Regla: **deny siempre gana**. Si un permiso está en el bundle del rol y tambié
 
 ## ¿Cómo hago X? — Índice por tarea
 
-### Trabajar un lead
-- Recibir uno del pool → [Member §Flujo 1](./role-member.md#flujo-1--recibir-un-lead-del-pool) · [Admin §Repartir pool](./role-admin.md#repartir-el-pool)
+### Trabajar un lead (Member)
+- Recibir uno del pool → [Member §Flujo 1](./role-member.md#flujo-1--recibir-un-lead-del-pool)
 - Mover stage (NEW → CONTACTED → QUALIFIED → DEMO → PROPOSAL) → [Member §Flujo 2](./role-member.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
 - Cerrar lead (WON / LOST) → [Member §Flujo 2](./role-member.md#flujo-2--trabajar-el-lead-hasta-cerrarlo)
 - Devolver lead al pool → [Member §Devolver al pool](./role-member.md#devolver-un-lead-al-pool)
 - Ver mis slots (n/4) → [Member §Cap de 4 leads](./role-member.md#cap-de-4-leads)
 - Enviar email / WhatsApp / IG / llamada → [Member §Composer](./role-member.md#composer-envía-comunicaciones-sin-salir-del-lead)
 
-### Comercial desde arriba (Manager/Admin/Owner)
+### Comercial desde arriba (Manager)
 - Ver actividad del equipo → [Manager §Pipeline y actividad](./role-manager.md#pipeline-y-actividad-del-equipo)
 - Métricas / ranking → [Manager §Métricas](./role-manager.md#métricas)
-- Editar objetivos comerciales → [Admin §Objetivos](./role-admin.md#objetivos) · [role-owner.md](./role-owner.md)
+- Editar objetivos comerciales → lo hacen Marta o Samuel; tú los lees.
 
-### Equipo
-- Invitar comercial nuevo → [Admin §Invitar](./role-admin.md#invitar-a-alguien-al-equipo)
-- Ajustar permisos a una persona (add/deny) → [Owner §Overrides](./role-owner.md#overrides-add--deny)
-- Cambiar rol de un miembro → [Owner §Cambiar rol](./role-owner.md#cambiar-el-rol-de-alguien)
-- Desactivar miembro → [Admin §Desactivar](./role-admin.md#desactivar-un-miembro)
+### Equipo (lo gestionan Samuel/Marta)
+- Invitar comercial nuevo → pedir a Marta.
+- Ajustar permisos a una persona (add/deny) → pedir a Samuel.
+- Cambiar rol de un miembro → pedir a Samuel.
+- Desactivar miembro → pedir a Marta.
 
 ### Clubes
-- Ver clubes activos / salud / renovaciones → [Manager §Panel clubes](./role-manager.md#panel-clubes) · [Admin §Panel clubes](./role-admin.md#panel-clubes-activos--onboarding--renovaciones)
-- Crear un club nuevo desde admin → [Admin §Crear club](./role-admin.md#crear-un-club-nuevo)
-- Convertir un lead ganado en club → [Admin §Convertir lead](./role-admin.md#convertir-un-lead-ganado-en-club)
+- Ver clubes activos / salud / renovaciones → [Manager §Panel clubes](./role-manager.md#panel-clubes)
+- Crear un club nuevo desde admin → lo hacen Marta/Samuel.
+- Convertir un lead ganado en club → lo hace Marta (tú cierras el lead con WON, ella convierte).
 
 ### Prospectos (pre-funnel)
-- Registrar prospecto B2B → [Admin §Prospectos](./role-admin.md#prospectos-pre-funnel)
-- Convertir prospecto en lead → [Admin §Prospectos](./role-admin.md#prospectos-pre-funnel)
+- Registrar / convertir prospectos → lo hacen Marta/Samuel; tú no los ves hasta que se convierten en lead.
 
 ### Marketing
-- Aprobar y publicar post Meembly (IG propio) → [Admin §Marketing Meembly](./role-admin.md#marketing-meembly-publicación-manual-desde-admin)
-- Proponer contenido a un club cliente → [Admin §Marketing clubes](./role-admin.md#marketing-proponer-contenido-a-un-club)
+- Aprobar y publicar post Meembly (IG propio) → lo hacen Marta/Samuel.
+- Proponer contenido a un club cliente → lo hacen Marta/Samuel; el club lo ve en su panel.
 
 ### Soporte
-- Aprobar / editar / rechazar un draft de IA → [Admin §Soporte](./role-admin.md#soporte-aprobar-drafts-de-ia)
-- Añadir corrección a la KB → [Admin §Soporte](./role-admin.md#soporte-aprobar-drafts-de-ia)
-- Ver conversaciones (read-only) → [Viewer §Soporte](./role-viewer.md#soporte-read-only)
+- Aprobar / editar / rechazar un draft de IA → lo hacen Marta/Samuel.
+- Añadir corrección a la KB → lo hacen Marta/Samuel.
+- Ver conversaciones (read-only) → [Viewer §Soporte](./role-viewer.md#soporte-read-only) (todos los roles tienen acceso lectura).
 
 ### Infraestructura
-- Conectar tu Gmail personal (para enviar emails desde tu identidad) → [Admin §Gmail](./role-admin.md#conectar-tu-gmail-personal) · [Member §Gmail](./role-member.md#conectar-tu-gmail-personal)
-- Revisar instancias Odoo con error → [Admin §Instancias](./role-admin.md#instancias-odoo) · [Owner](./role-owner.md)
-- Ver auditoría del equipo → [Admin §Auditoría](./role-admin.md#auditoría) · [Owner](./role-owner.md)
+- Conectar tu Gmail personal → [Member §Gmail](./role-member.md#conectar-tu-gmail-personal).
+- Revisar instancias Odoo con error → Marta/Samuel.
+- Ver auditoría del equipo → Marta/Samuel (no accesible a Manager/Member/Viewer).
 
 ### Notificaciones pendientes
 - Ver leads con actividad entrante sin atender → [Member §Pendientes](./role-member.md#pendientes-bandeja-de-actividad-entrante) · [Manager §Pendientes](./role-manager.md#pendientes-del-equipo)

@@ -106,6 +106,6 @@ Cuando abres un lead que está asignado a Roberto (no a ti), puede que la págin
 
 ## Lecturas complementarias
 
-- [role-admin.md](./role-admin.md) — qué hace Marta que tú no.
-- [role-member.md](./role-member.md) — el día a día de Roberto, para entender qué supervisas.
-- Plan de roles v2: [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md).
+- [role-member.md](./role-member.md) — el día a día del comercial, para entender qué supervisas.
+- [onboarding-comercial.md](./onboarding-comercial.md) — la semana 1 de cualquier comercial nuevo.
+- Qué hace Marta (Admin) o Samuel (Owner) que tú no: pregúntales — tienen guías internas de sus flujos.

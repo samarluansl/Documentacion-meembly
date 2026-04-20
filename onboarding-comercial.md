@@ -463,7 +463,6 @@ Cuando termines esta guía:
 
 - [role-member.md](./role-member.md) — referencia del día a día.
 - [admin-index.md](./admin-index.md) — matriz de permisos y navegación por tarea.
-- (Opcional, si eres curioso) [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md) — por qué el panel está diseñado así.
 
 ---
 

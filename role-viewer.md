@@ -64,5 +64,4 @@ Todo lo que implique tocar algo:
 
 ## Lecturas complementarias
 
-- Plan de roles v2: [docs/plan-roles-crm-v2.md](../plan-roles-crm-v2.md).
 - [admin-index.md](./admin-index.md) — índice por tarea, te lleva directo a la sección de otra guía si necesitas contexto.

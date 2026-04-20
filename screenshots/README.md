@@ -6,23 +6,6 @@ Esta carpeta aloja las capturas que referencian las guías de `docs/ops/role-*.m
 
 Formato sugerido: PNG, 1440×900 mínimo, zoom nativo. Anonimizar datos sensibles (emails, teléfonos, nombres de clubes reales) antes de subir.
 
-### role-owner.md / role-admin.md
-- [ ] `team-invite-modal.png` — modal de invitar con secciones "Añadir extras" y "Quitar del rol".
-- [ ] `team-member-edit.png` — editar rol y overrides de un miembro existente.
-- [ ] `pool-table.png` — tabla del pool con filtros y botón asignar.
-- [ ] `clubs-panel-activos.png` — tab Activos del panel clubes.
-- [ ] `clubs-panel-renovaciones.png` — tab Renovaciones con botón "Ya contactado".
-- [ ] `create-club-modal.png` — modal "Crear club".
-- [ ] `convert-lead-button.png` — botón "Convertir prospecto → Club" en un lead WON.
-- [ ] `prospects-list.png` — listado de prospectos con botón "Convertir en lead".
-- [ ] `marketing-meembly-tab.png` — tab Meembly con drafts + botón "Abrir en IG + marcar publicado".
-- [ ] `marketing-clubs-tab.png` — tab "Para clubes" con selector de club y acciones approve/propose.
-- [ ] `support-drafts.png` — bandeja de drafts con aprobar/rechazar/editar.
-- [ ] `support-kb.png` — knowledge base editable.
-- [ ] `audit-log.png` — log de auditoría del equipo.
-- [ ] `instances-list.png` — listado SPA/MPS/PM/YVR con estado y errores.
-- [ ] `targets-edit.png` — edición de objetivos por persona y periodo.
-
 ### role-manager.md
 - [ ] `home-manager.png` — home vista Manager (KPIs equipo, sin tile pool).
 - [ ] `pipeline-manager.png` — Kanban con filtros owner y prioridad.
