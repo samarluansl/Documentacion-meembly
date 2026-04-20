@@ -1,4 +1,4 @@
-# Guía del Viewer — stakeholders externos (Luis Escobar y similares)
+# Guía del Viewer — stakeholders externos (Luis y similares)
 
 Eres un stakeholder externo con acceso de lectura al panel de Meembly Admin. Ves prácticamente todo lo que hace el equipo — leads, deals, actividad, métricas, clubes — pero no editas nada. Tu rol está pensado para reportings, seguimiento de inversores, asesoramiento externo, etc.
 

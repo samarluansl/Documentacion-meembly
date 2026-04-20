@@ -38,7 +38,7 @@ flowchart TB
 | Marta | Admin | interno (pedir a Samuel) |
 | Pablo Salcedo | Manager | [role-manager.md](./role-manager.md) |
 | Roberto y futuros comerciales | Member | [role-member.md](./role-member.md) |
-| Luis Escobar y otros stakeholders externos | Viewer | [role-viewer.md](./role-viewer.md) |
+| Luis y otros stakeholders externos | Viewer | [role-viewer.md](./role-viewer.md) |
 
 > Nota: las guías detalladas de Owner (Samuel) y Admin (Marta) son internas y no se publican aquí. Los comerciales, manager y stakeholders tienen todo lo que necesitan en este repo.
 
